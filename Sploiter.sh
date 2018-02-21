@@ -193,4 +193,162 @@ then
                         msfconsole -x 'use exploit/windows/vnc/ultravnc_viewer_bof; options'
 		fi
 	fi
- fi
+elif [ $target -eq 2 ]
+then
+        clear
+        echo
+        echo "  $amarelo[1]$branco http"
+        echo
+        echo "  $amarelo[2]$branco samba"
+        echo
+        echo "  $amarelo[3]$branco ssh"
+        echo
+        echo "  $amarelo[4]$branco local"
+        echo
+        echo "$amarelo Select a host:"
+        echo -n "$verde linux>  $branco" && read ltarget
+	if [ $ltarget -eq 1 ]
+	then
+		clear
+       		echo
+		echo "  $amarelo[1]$branco apache_continuum_cmd_exec"
+	        echo
+        	echo "  $amarelo[2]$branco cisco_firepower_useradd"
+       		echo
+		echo "  $amarelo[3]$branco nginx_chunked_size"
+       		echo
+  		echo "  $amarelo[4]$branco vcms_upload"
+       		echo
+	        echo "$amarelo Select a exploit:"
+        	echo -n "$verde linux/http>  $branco" && read lhttp
+		if [ $lhttp -eq 1 ]
+		then
+			msfconsole -x 'use exploit/linux/http/apache_continuum_cmd_exec; options'
+		elif [ $lhttp -eq 2 ]
+		then
+			msfconsole -x 'use exploit/linux/http/cisco_firepower_useradd; options'
+		elif [ $lhttp -eq 3 ]
+		then
+			msfconsole -x 'use exploit/linux/http/nginx_chunked_size; options'
+		elif [ $lhttp -eq 4 ]
+		then
+			msfconsole -x 'use exploit/linux/http/vcms_upload; options'
+		fi
+	elif [ $ltarget -eq 2 ]
+	then
+		clear
+       		echo
+		echo "  $amarelo[1]$branco chain_reply"
+	        echo
+        	echo "  $amarelo[2]$branco trans2open"
+       		echo
+		echo "  $amarelo[3]$branco is_known_pipename"
+       		echo
+  		echo "$amarelo Select a exploit:"
+        	echo -n "$verde linux/samba>  $branco" && read lsamba
+		if [ $lsamba -eq 1 ]
+		then
+			msfconsole -x 'use exploit/linux/samba/chain_reply; options'
+		elif [ $lsamba -eq 2 ]
+		then
+			msfconsole -x 'use exploit/linux/samba/trans2open; options'
+		elif [ $lsamba -eq 3 ]
+		then
+			msfconsole -x 'use exploit/linux/samba/is_known_pipename; options'
+		fi
+	elif [ $ltarget -eq 3 ]
+	then
+		clear
+       		echo
+		echo "  $amarelo[1]$branco mercurial_ssh_exec"
+	        echo
+        	echo "  $amarelo[2]$branco quantum_vmpro_backdoor"
+       		echo
+		echo "  $amarelo[3]$branco symantec_smg_ssh"
+		echo
+		echo "  $amarelo[4]$branco solarwinds_lem_exec"
+       		echo
+  		echo "$amarelo Select a exploit:"
+        	echo -n "$verde linux/samba>  $branco" && read lssh
+		if [ $lssh -eq 1 ]
+		then
+			msfconsole -x 'use exploit/linux/ssh/mercurial_ssh_exec; options'
+		elif [ $lssh -eq 2 ]
+		then
+			msfconsole -x 'use exploit/linux/ssh/quantum_vmpro_backdoor; options'
+		elif [ $lssh -eq 3 ]
+		then
+			msfconsole -x 'use exploit/linux/ssh/symantec_smg_ssh; options'
+		elif [ $lssh -eq 4 ]
+		then
+			msfconsole -x 'use exploit/linux/ssh/solarwinds_lem_exec; options'
+		fi
+	elif [ $ltarget -eq 4 ]
+	then
+		clear
+       		echo
+		echo "  $amarelo[1]$branco bpf_priv_esc"
+	        echo
+        	echo "  $amarelo[2]$branco desktop_privelege_escalation"
+       		echo
+		echo "  $amarelo[3]$branco pkexec"
+       		echo
+  		echo "$amarelo Select a exploit:"
+        	echo -n "$verde linux/local>  $branco" && read llocal
+		if [ $llocal -eq 1 ]
+		then
+			msfconsole -x 'use exploit/linux/local/bpf_priv_esc; options'
+		elif [ $llocal -eq 2 ]
+		then
+			msfconsole -x 'use exploit/linux/local/desktop_privelege_escalation; options'
+		elif [ $llocal -eq 3 ]
+		then
+			msfconsole -x 'use exploit/linux/local/pkexec; options'
+		fi
+	fi
+elif [ $target -eq 3 ]
+then
+        clear
+        echo
+        echo "  $amarelo[1]$branco browser"
+        echo
+        echo "  $amarelo[2]$branco fileformat"
+        echo
+        echo "$amarelo Select a host:"
+        echo -n "$verde android>  $branco" && read andtarget
+	if [ $andtarget -eq 1 ]
+	then
+		clear
+       		echo
+		echo "  $amarelo[1]$branco stagefright_mp4_tx3g_64bit"
+	        echo
+        	echo "  $amarelo[2]$branco webview_addjavascriptinterface"
+       		echo
+		echo "  $amarelo[3]$branco samsung_knox_smdm_url"
+       		echo
+	        echo "$amarelo Select a exploit:"
+        	echo -n "$verde android/browser>  $branco" && read andbrowser
+		if [ $andbrowser -eq 1 ]
+		then
+			msfconsole -x 'use exploit/android/browser/stagefright_mp4_tx3g_64bit; options'
+		elif [ $andbrowser -eq 2 ]
+		then
+			msfconsole -x 'use exploit/android/browser/webview_addjavascriptinterface; options'
+		elif [ $andbrowser -eq 3 ]
+		then
+			msfconsole -x 'use exploit/android/browser/samsung_knox_smdm_url; options'
+		fi
+	elif [ $andtarget -eq 2 ]
+	then
+		clear
+       		echo
+		echo "  $amarelo[1]$branco adobe_reader_pdf_js_interface"
+       		echo
+	        echo "$amarelo Select a exploit:"
+        	echo -n "$verde android/fileformat>  $branco" && read andfile
+		if [ $andfile -eq 1 ]
+		then
+			msfconsole -x 'use exploit/android/fileformat/adobe_reader_pdf_js_interface; options'
+		fi
+	fi
+fi
