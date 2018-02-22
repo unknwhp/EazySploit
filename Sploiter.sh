@@ -351,4 +351,63 @@ then
 			msfconsole -x 'use exploit/android/fileformat/adobe_reader_pdf_js_interface; options'
 		fi
 	fi
+elif [ $target -eq 4 ]
+then
+	clear
+        echo
+        echo "  $amarelo[1]$branco common exploits"
+        echo
+        echo "  $amarelo[2]$branco multi "
+        echo
+        echo "$amarelo Select a option:"
+        echo -n "$verde other>  $branco" && read other
+	if [ $other -eq 1 ]
+	then
+		clear
+	        echo
+        	echo "  $amarelo[1]$branco vsftpd 2.3.4"
+	        echo
+        	echo "  $amarelo[2]$branco ms17_010_eternalblue"
+	        echo
+		echo "  $amarelo[3]$branco autopwn"
+		echo
+	        echo "$amarelo Select a exploit:"
+        	echo -n "$verde common>  $branco" && read common
+		if [ $common -eq 1 ]
+		then
+			msfconsole -x 'use exploit/unix/ftp/vsftpd_234_backdoor; options'
+		elif [ $common -eq 2 ]
+                then
+                        msfconsole -x 'use exploit/windows/smb/ms17_010_eternalblue; options'
+		elif [ $common -eq 3 ]
+                then
+                        msfconsole -x 'use auxiliary/server/browser_autopwn; options'
+		fi
+	elif [ $other -eq 2 ]
+	then
+		clear
+                echo
+                echo "  $amarelo[1]$branco java_jre17_jmxbean"
+                echo
+                echo "  $amarelo[2]$branco apache_mod_cgi_bash_env_exec"
+                echo
+                echo "  $amarelo[3]$branco phpmyadmin_3522_backdoor"
+                echo
+                echo "$amarelo Select a exploit:"
+                echo -n "$verde multi>  $branco" && read multi
+		if [ $multi -eq 1 ]
+		then
+			msfconsole -x 'use exploit/multi/browser/java_jre17_jmxbean; options'
+		elif [ $multi -eq 2 ]
+		then
+                        msfconsole -x 'use exploit/multi/http/apache_mod_cgi_bash_env_exec; options'
+                elif [ $multi -eq 3 ]
+		then
+                        msfconsole -x 'use exploit/multi/http/phpmyadmin_3522_backdoor; options'
+
+		fi
+	fi
+elif [ $target -eq 99 ]
+then
+	exit
 fi
